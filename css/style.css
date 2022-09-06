@@ -1,0 +1,241 @@
+/*boton*/
+.quien {
+  color: yellow;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 75px;
+  text-align: justify;
+  margin-left: 300px; }
+
+/*reset*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+/*fuentes del html*/
+@font-face {
+  font-family: poppins;
+  src: url(../fonts/Poppins-Thin.ttf); }
+
+@font-face {
+  font-family: robotomonothin;
+  src: url(../fonts/robotomono-thin.ttf); }
+
+@font-face {
+  font-family: archivo;
+  src: url(../fonts/archivoBlack.ttf); }
+
+@font-face {
+  font-family: poppinsthin;
+  src: url(../fonts/poppins-thin.ttf); }
+
+@font-face {
+  font-family: inconsolata;
+  src: url(../fonts/InconsolataCondensed-Light.ttf); }
+
+body {
+  background-color: black; }
+
+/*grid home*/
+.estructura-grid {
+  display: grid;
+  width: 100%;
+  height: 100vh;
+  grid-template-areas: "item-1 item-1 item-1" "item-2 item-2 item-2" "item-3 item-3 item-3"; }
+  .estructura-grid .item-1 {
+    color: white;
+    grid-area: item-1;
+    background-color: black;
+    height: 150px; }
+  .estructura-grid .item-2 {
+    background-color: black;
+    color: white;
+    grid-area: item-2;
+    height: 250px;
+    text-align: center;
+    left: 8%; }
+  .estructura-grid .item-3 {
+    grid-area: item-3;
+    background-color: black;
+    height: 20px; }
+  .estructura-grid .logo img {
+    height: 80px;
+    align-items: center; }
+
+/*estilos del header*/
+.cabezera {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 2rem;
+  margin-right: 4rem;
+  margin-left: 4rem;
+  align-items: center;
+  max-width: 992px;
+  margin: 0 auto; }
+  .cabezera .nav-menu {
+    display: flex;
+    list-style: none; }
+  .cabezera li a {
+    color: white;
+    text-decoration: none;
+    font-family: "Roboto Mono", monospace;
+    margin-left: 1.5rem;
+    width: max-content; }
+  .cabezera li :hover {
+    color: #fcfc00; }
+  .cabezera li .botonnav {
+    background-color: #fcfc00;
+    color: black;
+    border-radius: 5px;
+    border: 2px solid transparent;
+    padding: 5px 15px; }
+    .cabezera li .botonnav:hover {
+      background-color: transparent;
+      color: #fcfc00;
+      border: 2px solid #fcfc00; }
+  .cabezera .nav-toggle {
+    color: yellow;
+    background-color: transparent;
+    border: 0px;
+    font-size: 30px;
+    display: none;
+    cursor: pointer; }
+
+/*FIN estilos del header*/
+main h4 {
+  color: white;
+  font-family: "robotomonothin";
+  margin-top: 150px;
+  font-weight: 5px;
+  font-size: 15px; }
+  main h4 .maquina-escribir {
+    background: transparent;
+    position: relative; }
+    main h4 .maquina-escribir .nombre {
+      color: #fcfc00; }
+    main h4 .maquina-escribir ::after {
+      content: "";
+      border-left: 2px solid #fcfc00;
+      background: black;
+      right: 0;
+      height: 100%;
+      position: absolute;
+      animation: maquinaescribir 4s infinite alternate steps(33); }
+
+@keyframes maquinaescribir {
+  from {
+    width: 100%; }
+  to {
+    width: 0; } }
+
+main h1 {
+  color: white;
+  font-family: "Roboto Mono", monospace;
+  font-size: 75px; }
+
+main .buttonhome {
+  margin-top: 20px;
+  background-color: #fcfc00;
+  color: black;
+  font-family: "Roboto Mono", monospace;
+  border-radius: 5px;
+  border: 2px solid transparent;
+  padding: 5px 25px;
+  font-size: 20px;
+  margin-bottom: 80px; }
+  main .buttonhome:hover {
+    background-color: transparent;
+    color: #fcfc00;
+    border: 2px solid #fcfc00; }
+
+/*footer*/
+footer {
+  width: 100%;
+  height: 20px;
+  color: white;
+  font-family: poppins;
+  align-items: center;
+  font-size: 12px;
+  font-weight: 400;
+  bottom: 0;
+  margin-top: 100px;
+  left: 0px;
+  text-align: center;
+  position: fixed; }
+
+/*boton desplegable redes sociales*/
+#btn-mas {
+  display: none; }
+
+.containerred {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding-bottom: 25px; }
+
+.redes a, .btn-mas label {
+  display: block;
+  text-decoration: none;
+  background: white;
+  color: black;
+  width: 55px;
+  height: 55px;
+  line-height: 55px;
+  text-align: center;
+  border-radius: 50%;
+  box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.4);
+  transition: all 500ms ease; }
+
+.redes a {
+  margin-bottom: -15px;
+  opacity: 0;
+  visibility: hidden; }
+  .redes a :hover {
+    background: #fff;
+    color: yellow; }
+
+#btn-mas:checked ~ .redes a {
+  margin-bottom: 10px;
+  opacity: 1;
+  visibility: visible; }
+
+.btn-mas label {
+  cursor: pointer;
+  background: #fcfc00;
+  font-size: 23px; }
+
+.linea {
+  border-left: 1px solid white;
+  width: 0px;
+  height: 200px;
+  position: absolute;
+  left: 50%;
+  margin-left: -4px;
+  top: 20px;
+  margin-top: 90px; }
+
+/*aplicado a todos los titulos de las secciones*/
+main h3 {
+  font-family: 'robotomonothin';
+  text-align: justify;
+  margin-left: 300px;
+  margin-top: 10px; }
+  main h3 .maquina-escribir2 {
+    background: transparent;
+    position: relative; }
+    main h3 .maquina-escribir2 .nombre {
+      color: #fcfc00; }
+    main h3 .maquina-escribir2 ::after {
+      content: "";
+      border-left: 2px solid yellow;
+      background: black;
+      right: 0;
+      height: 100%;
+      position: absolute;
+      animation: maquinaescribir2 2s infinite alternate steps(20); }
+
+@keyframes maquinaescribir2 {
+  from {
+    width: 100%; }
+  to {
+    width: 0; } }

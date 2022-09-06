@@ -1,0 +1,339 @@
+
+@import "base/variables";
+@import "base/mapas";
+@import "base/mixin";
+@import "base/extend";
+
+/*reset*/
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*fuentes del html*/
+
+@font-face {
+    font-family: poppins;
+    src: url(../fonts/Poppins-Thin.ttf);
+}
+
+@font-face {
+    font-family: robotomonothin;
+    src: url(../fonts/robotomono-thin.ttf);
+}
+
+@font-face {
+    font-family: archivo;
+    src: url(../fonts/archivoBlack.ttf);
+}
+
+@font-face {
+    font-family: poppinsthin;
+    src: url(../fonts/poppins-thin.ttf);
+}
+
+@font-face {
+    font-family: inconsolata;
+    src: url(../fonts/InconsolataCondensed-Light.ttf);
+}
+
+//aplicando NESTING
+
+body{
+    background-color: black; 
+}
+
+/*grid home*/
+
+.estructura-grid {
+    display: grid;
+    width: 100%;
+    height: 100vh;
+    grid-template-areas: 
+    "item-1 item-1 item-1"
+    "item-2 item-2 item-2"
+    "item-3 item-3 item-3"
+    ;
+    .item-1{
+        color: white;
+        grid-area: item-1;
+        background-color: black;
+        height: 150px;
+    }
+    .item-2{
+        background-color: black;
+        color: white;
+        grid-area: item-2;
+        height: 250px;
+        text-align: center;
+        left: 8%;
+    }
+    .item-3{
+        grid-area: item-3;
+        background-color: black;
+        height: 20px;
+    }
+    .logo {
+        img{
+        height: 80px; 
+        align-items: center;
+    }
+}
+}
+
+/*estilos del header*/
+
+.cabezera {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 2rem;
+    margin-right: 4rem;
+    margin-left: 4rem;
+    align-items: center;
+    max-width: 992px;
+    margin: 0 auto;
+    .nav-menu {
+        display: flex;
+        list-style: none;
+    }
+    li {
+        a{
+        color: white;
+        text-decoration: none;
+        font-family: $fuenteprincipal;
+        margin-left: 1.5rem;  
+        width: max-content;
+    }
+    :hover{
+        color: $amarillo;
+    }
+    .botonnav {
+        background-color: map-get($map: $botonamarillo, 
+        $key:bg-botonamarillo );
+        color: map-get($map: $botonamarillo, 
+        $key: color-botonamarillo );
+        border-radius: map-get($map: $botonamarillo, 
+        $key: border-radius);
+        border: map-get($map: $botonamarillo, 
+        $key: border-botonamarillo );
+        padding: map-get($map: $botonamarillo, 
+        $key: padding-botonamarillo );
+        &:hover {
+            background-color: map-get($map: $botonamarillohover, 
+            $key: bg-botonamarillohover );
+            color: map-get($map: $botonamarillohover, 
+            $key: color-botonamarillohover );
+            border: map-get($map: $botonamarillohover, 
+            $key: border-botonamarillohover );
+    
+        }
+     }
+    }
+    .nav-toggle {
+        color: yellow;
+        background-color: transparent;
+        border: 0px;
+        font-size: 30px ;
+        display: none;
+        cursor: pointer;
+    }
+}
+
+/*FIN estilos del header*/
+
+main{
+    h4 {
+        color: white;
+        font-family: $fuentesecundaria;
+        margin-top: 150px;
+        font-weight: 5px; 
+        font-size: 15px; 
+        .maquina-escribir {
+            background: transparent;
+            position: relative;
+            .nombre{
+                color: $amarillo;
+            }
+            ::after  {
+                content: "";
+                border-left: 2px solid $amarillo;
+                background: black;
+                right: 0;
+                height: 100%;
+                position: absolute;
+                animation: maquinaescribir 4s infinite alternate steps(33);
+            }
+            @keyframes maquinaescribir {
+                from {
+                    width: 100%;
+                }
+                to{
+                    width: 0;
+                }
+            }
+        }
+    }
+    
+    h1 {
+        color: white;
+        font-family: $fuenteprincipal;
+        font-size: 75px;
+        }
+
+    .buttonhome {
+        margin-top: 20px;
+        background-color: $amarillo;
+        color: black;
+        font-family: $fuenteprincipal;
+        border-radius: 5px;
+        border: 2px solid transparent;
+        padding: 5px 25px;
+        font-size: 20px;
+        margin-bottom: 80px;
+        &:hover {
+            background-color: transparent;
+            color: $amarillo;
+            border: 2px solid $amarillo;
+            }
+        }
+    }
+
+
+/*footer*/
+
+footer {
+    width: 100%;
+    height: 20px;
+    color: white;
+    font-family: poppins;
+    align-items: center;
+    font-size: 12px;
+    font-weight: 400;
+    bottom: 0;
+    margin-top: 100px;
+    left: 0px;
+    text-align: center;
+    position: fixed;
+}
+
+/*boton desplegable redes sociales*/
+
+#btn-mas{
+    display: none;
+}
+
+.containerred{
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding-bottom: 25px;
+}
+
+.redes a, .btn-mas label{
+    display: block;
+    text-decoration: none;
+    background: white;
+    color: black;
+    @include medidas (55px, 55px);
+    line-height: 55px;
+    text-align: center;
+    border-radius: 50%;
+    box-shadow: 0px 1px 10px rgba(0,0,0,0.4);
+    transition: all 500ms ease;}
+    .redes a{
+        margin-bottom: -15px;
+        opacity: 0;
+        visibility: hidden;
+    :hover{
+            background: #fff;
+            color: yellow;
+        }
+    }
+    #btn-mas:checked~ .redes a{
+        margin-bottom: 10px;
+        opacity: 1;
+        visibility: visible;
+    }
+    .btn-mas label{
+        cursor: pointer;
+        background: $amarillo;
+        font-size: 23px;
+    }
+
+    .linea {
+        border-left: 1px solid white;
+        @include medidas (0px, 200px);
+        position: absolute;
+        left: 50%;
+        margin-left: -4px;
+        top: 20px;
+        margin-top: 90px;
+           }
+
+/*aplicado a todos los titulos de las secciones*/
+    .quien{
+        @extend %titulos;
+}
+
+
+
+main {
+    h3 {
+    font-family: 'robotomonothin';
+    text-align: justify;
+    margin-left: 300px;
+    margin-top: 10px;
+    .maquina-escribir2 {
+        background: transparent;
+        position: relative;
+        .nombre {
+            color: $amarillo;
+        }
+        ::after {
+            content: "";
+            border-left: 2px solid yellow;
+            background: black;
+            right: 0;
+            height: 100%;
+            position: absolute;
+            animation: maquinaescribir2 2s infinite alternate steps(20);
+        }
+        @keyframes maquinaescribir2 {
+            from {
+                width: 100%;
+            }
+            to{
+                width: 0;
+            }
+        }
+    }
+    }
+    }
+    
+    
+        
+    
+
+   
+    
+    
+    
+    
+        
+
+    
+
+    
+
+    
+
+
+
+
+
+
+
+
+
